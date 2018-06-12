@@ -35,6 +35,29 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="lastName"
+                                class="col-md-4 col-form-label text-md-right">
+                                {{ __('Pavardė') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="lastName"
+                                    type="text"
+                                    class="form-control{{ $errors->has('lastName') ? ' is-invalid' : '' }}"
+                                    name="lastName"
+                                    value="{{ old('lastName') }}"
+                                    required
+                                    autofocus>
+
+                                @if ($errors->has('lastName'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('lastName') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email"
                                 class="col-md-4 col-form-label text-md-right">
                                 {{ __('El. paštas') }}
@@ -51,6 +74,28 @@
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="phone"
+                                class="col-md-4 col-form-label text-md-right">
+                                {{ __('Telefonas') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="phone"
+                                    type="phone"
+                                    class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}"
+                                    name="phone"
+                                    value="{{ old('phone') }}"
+                                    required>
+
+                                @if ($errors->has('phone'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                 @endif
                             </div>

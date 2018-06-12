@@ -16,6 +16,8 @@ class UsersSeeder extends Seeder
         $lector->email = 'lector@mail.com';
         $lector->type = 1;
         $lector->name = 'Dėstytojas';
+        $lector->lastName = 'Pirmas';
+        $lector->phone = 45454545;
         $lector->password = bcrypt('123456');
         $lector->save();
 
@@ -23,6 +25,8 @@ class UsersSeeder extends Seeder
         $student->email = 'student@mail.com';
         $student->type = 2;
         $student->name = 'Studentas';
+        $student->lastName = 'Pirmas';
+        $student->phone = 245254254;
         $student->password = bcrypt('123456');
         $student->save();
     }
