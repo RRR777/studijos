@@ -19,12 +19,14 @@ class CreateFilesTable extends Migration
             $table->string('name');
             $table->binary('file');
             $table->timestamps();
+        });
 
-/* 
-        $table->foreign('lecture_id')
-            ->references('id')
-            ->on('lectures')
-            ->onDelete('cascade'); */
+        Schema::table('files', function($table)
+        {
+            $table->foreign('lecture_id')
+                ->references('id')
+                ->on('lectures')
+                ->onDelete('cascade');
         });
     }
 

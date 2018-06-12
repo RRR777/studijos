@@ -17,8 +17,11 @@ class CreateStudentsGroupsTable extends Migration
             $table->unsignedInteger('cource_id');
             $table->unsignedInteger('user_id');
             $table->timestamps();
+        });
 
-/*             $table->foreign('user_id')
+        Schema::table('students_groups', function($table)
+        {
+            $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
