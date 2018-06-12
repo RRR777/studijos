@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Jūs sėkmingai prisijungėte!
                 </div>
             </div>
         </div>
