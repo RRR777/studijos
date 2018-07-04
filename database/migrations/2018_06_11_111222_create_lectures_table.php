@@ -15,14 +15,12 @@ class CreateLecturesTable extends Migration
     {
         Schema::create('lectures', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('group_id');
+            $table->unsignedInteger('group_id')->index();
             $table->date('date');
             $table->string('name');
             $table->text('description');
             $table->timestamps();
-        });
 
-        Schema::table('lectures', function($table) {
             $table->foreign('group_id')
                 ->references('id')
                 ->on('groups')

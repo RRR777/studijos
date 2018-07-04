@@ -14,12 +14,10 @@ class CreateStudentsGroupsTable extends Migration
     public function up()
     {
         Schema::create('students_groups', function (Blueprint $table) {
-            $table->unsignedInteger('cource_id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('cource_id')->index();
+            $table->unsignedInteger('user_id')->index();
             $table->timestamps();
-        });
 
-        Schema::table('students_groups', function($table) {
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')

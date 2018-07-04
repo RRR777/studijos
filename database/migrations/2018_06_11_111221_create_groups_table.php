@@ -15,26 +15,22 @@ class CreateGroupsTable extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('cource_id');
-            $table->unsignedInteger('lector_id');
+            $table->unsignedInteger('cource_id')->index();
+            $table->unsignedInteger('lector_id')->index();
             $table->string('name');
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();
-        });
 
-        Schema::table('groups', function($table) {
             $table->foreign('cource_id')
                 ->references('id')
                 ->on('cources')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('cascade');
 
             $table->foreign('lector_id')
                 ->references('id')
                 ->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('cascade');
         });
     }
 
