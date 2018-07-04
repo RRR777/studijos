@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Jūs sėkmingai prisijungėte!</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,12 +13,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    Jūs sėkmingai prisijungėte!
                 </div>
                 <div class="card-body">
                     <ul>
-                        <li>Kursai</li>
+                        <li><a href="{{ url('/courses') }}">Kursai</a></li>
                         <li>Grupės</li>
                         <li>Paskaitos</li>
                         <li>Studentai</li>

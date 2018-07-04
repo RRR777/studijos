@@ -41,11 +41,7 @@
                                 @foreach ($courses as $course)
                                     <tr>
                                         <th scope="row">{{ $counter++ }}</th>
-                                        <td>
-                                            <a href = "/api/category/{{$course->id}}">
-                                                {{ $course->name }}
-                                            </a>
-                                        </td>
+                                        <td>{{ $course->name }}</td>
                                         <td nowrap><a href = "{{ url('courses', $course->id) . '/edit' }}">{{ __('Redaguoti') }}</a></td>
                                         <td nowrap><a href = "{{ url('courses', $course->id) .'/delete' }}">{{ __('Ištrinti') }}</a></td>
                                     </tr>

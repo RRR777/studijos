@@ -19,6 +19,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+    .btn-space {
+        margin-right: 5px;
+    }
+    </style>
 </head>
 <body>
     <div id="app">
