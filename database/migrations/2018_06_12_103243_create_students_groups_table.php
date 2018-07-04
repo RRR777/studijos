@@ -14,7 +14,7 @@ class CreateStudentsGroupsTable extends Migration
     public function up()
     {
         Schema::create('students_groups', function (Blueprint $table) {
-            $table->unsignedInteger('cource_id')->index();
+            $table->unsignedInteger('course_id')->index();
             $table->unsignedInteger('user_id')->index();
             $table->timestamps();
 
@@ -23,9 +23,9 @@ class CreateStudentsGroupsTable extends Migration
                 ->on('users')
                 ->onDelete('cascade');
             
-            $table->foreign('cource_id')
+            $table->foreign('course_id')
                 ->references('id')
-                ->on('cources')
+                ->on('courses')
                 ->onDelete('cascade');
         });
     }

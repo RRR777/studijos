@@ -15,16 +15,16 @@ class CreateGroupsTable extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('cource_id')->index();
+            $table->unsignedInteger('course_id')->index();
             $table->unsignedInteger('lector_id')->index();
             $table->string('name');
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();
 
-            $table->foreign('cource_id')
+            $table->foreign('course_id')
                 ->references('id')
-                ->on('cources')
+                ->on('courses')
                 ->onDelete('cascade');
 
             $table->foreign('lector_id')

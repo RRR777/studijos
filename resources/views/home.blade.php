@@ -16,6 +16,15 @@
 
                     Jūs sėkmingai prisijungėte!
                 </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Kursai</li>
+                        <li>Grupės</li>
+                        <li>Paskaitos</li>
+                        <li>Studentai</li>
+                        <li>Žinutės</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
