@@ -22,8 +22,7 @@ class CreateLecturesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('lectures', function($table)
-        {
+        Schema::table('lectures', function($table) {
             $table->foreign('group_id')
                 ->references('id')
                 ->on('groups')

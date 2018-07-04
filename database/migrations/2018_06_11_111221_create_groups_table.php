@@ -23,8 +23,7 @@ class CreateGroupsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('groups', function($table)
-        {
+        Schema::table('groups', function($table) {
             $table->foreign('cource_id')
                 ->references('id')
                 ->on('cources')
@@ -33,7 +32,7 @@ class CreateGroupsTable extends Migration
 
             $table->foreign('lector_id')
                 ->references('id')
-                ->on('lectures')
+                ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });

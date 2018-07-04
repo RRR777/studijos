@@ -19,8 +19,7 @@ class CreateStudentsGroupsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('students_groups', function($table)
-        {
+        Schema::table('students_groups', function($table) {
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
@@ -29,7 +28,7 @@ class CreateStudentsGroupsTable extends Migration
             $table->foreign('cource_id')
                 ->references('id')
                 ->on('cources')
-                ->onDelete('cascade'); */
+                ->onDelete('cascade');
         });
     }
 

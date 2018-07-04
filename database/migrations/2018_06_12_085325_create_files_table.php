@@ -21,8 +21,7 @@ class CreateFilesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('files', function($table)
-        {
+        Schema::table('files', function($table) {
             $table->foreign('lecture_id')
                 ->references('id')
                 ->on('lectures')
