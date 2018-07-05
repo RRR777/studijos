@@ -21,3 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/courses', 'CourseController');
 Route::get('courses/{course}/delete', 'CourseController@delete');
+
+Route::resource('/groups', 'GroupController');
+Route::get('groups/{group}/delete', 'GroupController@delete');

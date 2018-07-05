@@ -17,7 +17,7 @@
                 <div class="card-body">
                     <ul>
                         <li><a href="{{ url('/courses') }}">Kursai</a></li>
-                        <li>Grupės</li>
+                        <li><a href="{{ url('/groups') }}">Grupės</a></li>
                         <li>Paskaitos</li>
                         <li>Studentai</li>
                         <li>Žinutės</li>

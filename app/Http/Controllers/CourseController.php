@@ -75,8 +75,6 @@ class CourseController extends Controller
      */
     public function update(CreateCourseRequest $request, Course $course)
     {
-        //$courses = Course::orderBy('name', 'asc')->get();
-
         $course->name = $request->input('name');
         $course->save();
 
