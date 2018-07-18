@@ -6,7 +6,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <span class="h2">Įveskite informaciją apie Kursą</span>
+                    <span class="h2">Paskaitos informacijos koregavimas</span>
+                    <h4>{{ $lecture->name }}</h4>
                     <button onclick='location.href="{{ url('/home') }}"'
                         type="button"
                         class="btn btn-info float-right">
@@ -22,32 +23,73 @@
 
                     <div class="container">
                         @include('layouts.errors')
-                        <form class="needs-validation"
+                        <form class="needs-validation" 
                             novalidate
-                            action="{{ url('/courses') }}"
+                            action="{{ url('groups/' . $group->id, 'lectures') . '/' . $lecture->id }}"
                             method="post">
                             {{ csrf_field() }}
+                            {{ method_field('PUT') }}
                             <div class="form-row">
                                 <div class="col-md-3 mb-3">
                                     <label for="validationServer01">
-                                        Kurso pavadinimas:
+                                        Paskaitos pavadinimas:
                                     </label>
                                 </div>
                                 <div class="col-md-9 mb-9">
                                     <input type="text"
                                         class="form-control"
-                                        value="{{ old('name') }}"
+                                        value="{{ $lecture->name }}"
                                         name="name"
                                         id="validationServer01"
-                                        placeholder="Įveskite kurso pavadinimą"
+                                        placeholder="Įveskite Paskaitos pavadinimą"
                                         required>
                                     <div class="invalid-feedback">
-                                        * Įveskite Kurso pavadinimą!
+                                        * Įveskite Paskaitos pavadinimą!
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationServer01">
+                                        Paskaitos data:
+                                    </label>
+                                </div>
+                                <div class="col-md-9 mb-9">
+                                    <input type="date"
+                                        class="form-control"
+                                        value="{{ $lecture->date }}"
+                                        name="date"
+                                        id="validationServer01"
+                                        placeholder="Įveskite paskaitos datą"
+                                        required>
+                                    <div class="invalid-feedback">
+                                        * Įveskite paskaitos datą!
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-3 mb-3">
+                                    <label for="validationServer01">
+                                        Aprašymas:
+                                    </label>
+                                </div>
+                                <div class="col-md-9 mb-9">
+                                    <input type="text"
+                                        class="form-control"
+                                        value="{{ $lecture->description }}"
+                                        name="description"
+                                        id="validationServer01"
+                                        placeholder="Paskaitos aprašymas"
+                                        required>
+                                    <div class="invalid-feedback">
+                                        * Paskaitos aprašymas!
                                     </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-info">Patvirtinti</button>
-                            <button onclick='location.href="{{ url('/courses') }}"'
+                            <button onclick='location.href="{{ url('/groups', $group->id) . '/lectures' }}"'
                                 type="button"
                                 class="btn btn-info btn-space">
                                 Atsisakyti

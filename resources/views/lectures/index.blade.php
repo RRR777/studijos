@@ -6,16 +6,22 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    <span class="h2">Grupės</span>
+                    <span class="h2">Paskaitos</span>
+                    <h4>Grupė: {{ $group->name . "\n"}}</h4>
                     <button onclick='location.href="{{ url('/home') }}"'
                         type="button"
                         class="btn btn-info float-right btn-space">
                         Pradinis
                     </button>
-                    <button onclick='location.href="{{ url('/groups/create') }}"'
+                    <button onclick='location.href="{{ url('/groups', $group->id) . '/lectures/create' }}"'
                         type="button"
                         class="btn btn-info float-right btn-space">
-                        Nauja grupė
+                        Nauja Paskaita
+                    </button>
+                    <button onclick='location.href="{{ url('/groups') }}"'
+                        type="button"
+                        class="btn btn-info float-right btn-space">
+                        Atgal
                     </button>
                 </div>
 
@@ -31,29 +37,27 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Eil.Nr.</th>
-                                    <th scope="col">Grupės pavadinimas</th>
-                                    <th scope="col">Kursas</th>
-                                    <th scope="col">Dėstytojas</th>
-                                    <th scope="col">Pradžia</th>
-                                    <th scope="col">Pabaiga</th>
-                                    <th scope="col">Paskaitos</th>
+                                    <th scope="col">Grupė</th>
+                                    <th scope="col">Paskaitos data</th>
+                                    <th scope="col">Paskaitos pavadinimas</th>
+                                    <th scope="col">Aprašymas</th>
+                                    <th scope="col">ID</th>
                                     <th scope="col">Redaguoti</th>
                                     <th scope="col">Trinti</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $counter = 1 ?>
-                                @foreach ($groups as $group)
+                                @foreach ($lectures as $lecture)
                                     <tr>
                                         <th scope="row">{{ $counter++ }}</th>
-                                        <td>{{ $group->name }}</td>
-                                        <td>{{ $group->course->name }}</td>
-                                        <td>{{ $group->user->name }}</td>
-                                        <td>{{ $group->start_date }}</td>
-                                        <td>{{ $group->end_date }}</td>
-                                        <td nowrap><a href = "{{ url('groups', $group->id) . '/lectures' }}">{{ __('Paskaitos') }}</a></td>
-                                        <td nowrap><a href = "{{ url('groups', $group->id) . '/edit' }}">{{ __('Redaguoti') }}</a></td>
-                                        <td nowrap><a href = "{{ url('groups', $group->id) .'/delete' }}">{{ __('Ištrinti') }}</a></td>
+                                        <td>{{ $lecture->group->name }}</td>
+                                        <td>{{ $lecture->date }}</td>
+                                        <td>{{ $lecture->name }}</td>
+                                        <td>{{ $lecture->description }}</td>
+                                        <td>{{ $lecture->id }}</td>
+                                        <td nowrap><a href = "{{ url('groups/' . $group->id, 'lectures') . '/' . $lecture->id . '/edit' }}">{{ __('Redaguoti') }}</a></td>
+                                        <td nowrap><a href = "{{ url('groups/'. $group->id, 'lectures') . '/' . $lecture->id .'/delete' }}">{{ __('Ištrinti') }}</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

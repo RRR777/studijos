@@ -23,8 +23,17 @@ class CreateCourseRequest extends FormRequest
      */
     public function rules()
     {
+        if ($this->method() == 'PUT')
+            {
+                $name_rule = 'required|min:2|unique:courses,name,' . $this->name . ',name';
+            }
+            else
+            {
+                $name_rule = 'required|min:2|unique:courses';
+            }
         return [
-            'name' => 'required|min:2|unique:courses',
+
+            'name' => $name_rule
         ];
     }
 

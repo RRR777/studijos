@@ -134,6 +134,11 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-info">Patvirtinti</button>
+                            <button onclick='location.href="{{ url('/groups') }}"'
+                                type="button"
+                                class="btn btn-info btn-space">
+                                Atsisakyti
+                            </button>
                         </form>
                     </div>
                 </div>

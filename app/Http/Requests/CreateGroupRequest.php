@@ -23,8 +23,18 @@ class CreateGroupRequest extends FormRequest
      */
     public function rules()
     {
+
+        if ($this->method() == 'PUT')
+            {
+                $name_rule = 'required|min:3|unique:groups,name,' . $this->name . ',name';
+            }
+            else
+            {
+                $name_rule = 'required|min:3|unique:groups';
+            }
+
         return [
-            'name' => 'required|min:3|unique:groups',
+            'name' => $name_rule,
             'start_date' => 'required|date',
             'end_date' => 'required|date|after: start_date',
         ];
