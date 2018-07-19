@@ -6,16 +6,16 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    <span class="h2">Grupės</span>
+                    <span class="h2">Studentai</span>
                     <button onclick='location.href="{{ url('/home') }}"'
                         type="button"
                         class="btn btn-info float-right btn-space">
                         Pradinis
                     </button>
-                    <button onclick='location.href="{{ url('/groups/create') }}"'
+                    <button onclick='location.href="{{ url('/students/create') }}"'
                         type="button"
                         class="btn btn-info float-right btn-space">
-                        Nauja grupė
+                        Naujas studentas
                     </button>
                 </div>
 
@@ -31,31 +31,29 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Eil.Nr.</th>
-                                    <th scope="col">Grupės pavadinimas</th>
-                                    <th scope="col">Kursas</th>
-                                    <th scope="col">Dėstytojas</th>
-                                    <th scope="col">Pradžia</th>
-                                    <th scope="col">Pabaiga</th>
+                                    <th scope="col">Vardas</th>
+                                    <th scope="col">Pavardė</th>
+                                    <th scope="col">El.Telefonas</th>
+                                    <th scope="col">El.paštas</th>
+                                    <th scope="col">Grupė</th>
                                     <th scope="col">Paskaitos</th>
-                                    <th scope="col">Studentai</th>
                                     <th scope="col">Redaguoti</th>
                                     <th scope="col">Trinti</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $counter = 1 ?>
-                                @foreach ($groups as $group)
+                                @foreach ($students as $student)
                                     <tr>
                                         <th scope="row">{{ $counter++ }}</th>
-                                        <td>{{ $group->name }}</td>
-                                        <td>{{ $group->course->name }}</td>
-                                        <td>{{ $group->user->name }}</td>
-                                        <td>{{ $group->start_date }}</td>
-                                        <td>{{ $group->end_date }}</td>
-                                        <td nowrap><a href = "{{ url('groups', $group->id) . '/lectures' }}">{{ __('Paskaitos') }}</a></td>
-                                        <td nowrap><a href = "{{ url('groups', $group->id ) . '/students' }}">{{ __('Studentai') }}</a></td>
-                                        <td nowrap><a href = "{{ url('groups', $group->id) . '/edit' }}">{{ __('Redaguoti') }}</a></td>
-                                        <td nowrap><a href = "{{ url('groups', $group->id) .'/delete' }}">{{ __('Ištrinti') }}</a></td>
+                                        <td>{{ $student->name }}</td>
+                                        <td>{{ $student->lastName }}</td>
+                                        <td>{{ $student->phone }}</td>
+                                        <td>{{ $student->email }}</td>
+                                        <td>{{ 'ID ' . $student->id }}</td>
+                                        <td></td>
+                                        <td nowrap><a href = "{{ url('students', $student->id) . '/edit' }}">{{ __('Redaguoti') }}</a></td>
+                                        <td nowrap><a href = "{{ url('students', $student->id) .'/delete' }}">{{ __('Ištrinti') }}</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -26,11 +26,7 @@ Route::resource('/groups', 'GroupController');
 Route::get('/groups/{group}/delete', 'GroupController@delete');
 
 Route::resource('/groups/{group}/lectures', 'LectureController');
-
-//Route::get('/groups/{group}/lectures', 'LectureController@index');
-//Route::get('/groups/{group}/lectures/create', 'LectureController@create');
-//Route::post('/groups/{group}/lectures', 'LectureController@store');
-//Route::get('/groups/{group}/lectures/{lecture}/edit', 'LectureController@edit');
-//Route::put('/groups/{group}/lectures/{lecture}', 'LectureController@update');
 Route::get('/groups/{group}/lectures/{lecture}/delete', 'LectureController@delete');
-//Route::delete('/groups/{group}/lectures/{lecture}', 'LectureController@destroy');
+
+Route::resource('/students', 'StudentController');
+Route::get('/groups/{group}/students', 'StudentController@groupStudents');

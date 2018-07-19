@@ -12,6 +12,29 @@
                         @csrf
 
                         <div class="form-group row">
+                            <label for="type"
+                                class="col-md-4 col-form-label text-md-right">
+                                {{ __('Dėstytojas/Studentas') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="type"
+                                    type="text"
+                                    class="form-control{{ $errors->has('type') ? ' is-invalid' : '' }}"
+                                    name="type"
+                                    value="{{ old('type') }}"
+                                    required
+                                    autofocus>
+
+                                @if ($errors->has('type'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('type') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="name"
                                 class="col-md-4 col-form-label text-md-right">
                                 {{ __('Vardas') }}
@@ -87,7 +110,7 @@
 
                             <div class="col-md-6">
                                 <input id="phone"
-                                    type="phone"
+                                    type="tel"
                                     class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}"
                                     name="phone"
                                     value="{{ old('phone') }}"

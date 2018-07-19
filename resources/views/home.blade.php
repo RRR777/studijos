@@ -19,7 +19,7 @@
                         <li><a href="{{ url('/courses') }}">Kursai</a></li>
                         <li><a href="{{ url('/groups') }}">Grupės</a></li>
                         <li>Paskaitos</li>
-                        <li>Studentai</li>
+                        <li><a href="{{ url('/students') }}">Studentai</a></li>
                         <li>Žinutės</li>
                     </ul>
                 </div>
